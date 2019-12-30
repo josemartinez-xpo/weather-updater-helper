@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+    <script>
+      let editorRef;
+
+      function updateOutput() {
+        let old = document.getElementById("output").innerText;
+        if (editorRef && old !== editorRef.getData()) {
+          document.getElementById("output").innerText = editorRef.getData();
+        }
+      }
+
+
+    </script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form action="/update" method="post">
+      <textarea name="content" id="editor"><%= html %></textarea>
+      <button type="submit">Save</button>
+    </form>
+    <hr>
+    <div style="text-wrap: normal; word-break: break-all;" id="output"></div>
+
+
+  </body>
+
+  <script>
+    ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+              editorRef = editor;
+              setInterval(updateOutput, 500)
+            } )
+            .catch( error => {
+              console.error( error );
+            } );
+  </script>
+</html>

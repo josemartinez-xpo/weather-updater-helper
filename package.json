@@ -1,0 +1,21 @@
+{
+  "name": "weatherupdater",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dom-parser": "^0.1.6",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jsdom": "^15.2.1",
+    "morgan": "~1.9.1",
+    "node-postgres": "^0.1.2",
+    "pg": "^7.14.0"
+  }
+}
